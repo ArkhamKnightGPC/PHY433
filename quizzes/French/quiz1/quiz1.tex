@@ -10,6 +10,7 @@
 \usepackage{tcolorbox}
 \usepackage{color}
 \usepackage{breqn}
+%\usepackage{siunitx}
 
 \begin{document}
 	\title{L'Ensemble Microcanonique}
@@ -27,6 +28,12 @@
 		\quad On observe l’état de l’un des atomes. Quelle est la probabilité de l’observer dans sa position interstitielle?
 	\end{tcolorbox}
 
+	Pour un système isolé en équilibre, tous les micro-états accessibles sont également probables.
+	
+	Tout d'abord, nous observons que $E = 4000 J \implies \frac{4000 J}{0.1 eV} = 2.5 \times 10^{23}$ atomes occupent des sites interstitiels.
+	
+	Ainsi, la probabilité qu'un atome occupe un site interstitiel est \(\frac{2.5 \times 10^{23}}{10^{24}} = \frac{1}{4}\).
+
 	\section{Fluctuations de densité dans un gaz parfait}
 	\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black]
 		\quad Une bouteille d’$1$ litre contient une mole de gaz, et elle est bien isolée de l’extérieur. Ce gaz est supposé parfait, ce qui signifie que, si l’on néglige la force de pesanteur, l’énergie est indépendante des positions des molécules du gaz.
@@ -34,6 +41,21 @@
 		\quad On regarde à un instant donné un petit volume de la bouteille qui est un cube de $0.01$ micron de côté. Quelle est la probabilité qu’il n’y ait aucune molécule dans ce volume ?
 	\end{tcolorbox}
 
+	Encore une fois, nous avons un système isolé en équilibre, donc tous les micro-états accessibles sont également probables.
+	
+	Soit \(X_i\) une variable aléatoire désignant la position de la particule \(i\). Nous supposons que les \(X_i\) sont indépendants et identiquement distribués.
+	
+	Nous savons que \(X_i\) suit une \textbf{distribution uniforme} sur le volume de la bouteille car l'énergie est indépendante des positions des molécules de gaz.
+	
+	Par indépendance, la probabilité qu'il n'y ait pas de molécules dans ce volume est le produit des probabilités que chaque particule individuelle ne soit pas dans le volume.
+	
+	\[ \left( 1 - \left(\frac{0.01 \mu m}{10^5 \mu m}\right)^3 \right)^{6.022 \times 10^{23}} \leq e^{-6.022 \times 10^{16}} \approx 0 \]
+	
+	\begin{tcolorbox}[colback=yellow!5!white,colframe=yellow!75!black]
+		Nous avons utilisé l'inégalité
+		\[ (1-x)^n \leq e^{-nx} \]
+		qui est vraie pour \( n \geq 1\) et \( -1 \leq x \leq 1 \).
+	\end{tcolorbox}
 
 	\section{Information génétique et cerveau}
 	\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black]
@@ -42,6 +64,13 @@
 		\quad On suppose pour simplifier que les synapses peuvent être seulement de deux types, excitatrices ou inhibitrices. Y a-t-il assez d'information dans l'ADN pour coder l'état de chaque synapse?
 	\end{tcolorbox}
 	
+	L'ADN humain peut coder \(2^{3 \times 10^9}\) états. Les synapses peuvent coder \(10^{11} \times 2^{410^3}\) états.
+	
+	Pour comparer ces quantités, nous prenons des logarithmes en base \(2\), ce qui donne
+	
+	\[ 3 \times 10^9 > 11 \log_{2} 10 + 410^3 \]
+	
+	donc nous concluons qu'en fait il y a suffisamment d'information dans l'ADN pour coder l'état de chaque synapse.
 	
 	
 \end{document}

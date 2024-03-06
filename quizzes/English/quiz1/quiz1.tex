@@ -27,6 +27,12 @@
 		\quad We observe the state of one of the atoms. What is the probability of observing it in its interstitial position?
 	\end{tcolorbox}
 
+	For an isolated system in equilibrium, all accessible microstates are equally likely.
+			
+	Firstly, we observe that $E = 4000 J \implies \frac{4000 J}{0.1 eV} = 2.5 \times 10^{23}$ atoms occupy interstitial sites.
+	
+	So, the probability that an atom occupies an interstitial site is $\frac{2.5 \times 10^{23}}{10^{24}} = \frac{1}{4}$.
+
 	\section{Density fluctuations in an ideal gas}
 	\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black]
 		\quad A $1$ liter bottle contains one mole of gas, and it is well isolated from the outside. This gas is assumed to be ideal, which means that, if we neglect the force of gravity, the energy is independent of the positions of the gas molecules.
@@ -34,6 +40,21 @@
 		\quad At a given instant, we look at a small volume of the bottle which is a cube of side $0.01$ micron. What is the probability that there are no molecules in this volume?
 	\end{tcolorbox}
 
+	Again, we have an isolated system in equilibrium, so all accessible microstates are equally likely.
+	
+	Let $X_i$ be a random variable denoting the position of particle $i$. We suppose the $X_i$ are independent are identically distributed.
+	
+	We know that $X_i$ follows a \textbf{uniform distribution} over the bottle's volume because the energy is independent of the positions of the gas molecules.
+	
+	 By independence, the probability that there are no molecules in this volume is the product of the probabilities that each individual particle is not in the volume.
+	 
+	 $$ \left( 1 - \left(\frac{0.01 \mu m}{10^5 \mu m}\right)^3 \right)^{6.022 \times 10^{23}} \leq e^{-6.022 \times 10^{16}} \approx 0 $$
+	 
+	 \begin{tcolorbox}[colback=yellow!5!white,colframe=yellow!75!black]
+	 	We used the inequality
+	 	$$ (1-x)^n \leq e^{-nx} $$
+	 	which is true for $ n \geq 1$ and $-1 \leq x \leq 1$.
+	 \end{tcolorbox}
 
 	\section{Genetic information and the brain}
 	\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black]
@@ -41,7 +62,13 @@
 		
 		\quad We assume, for simplification, that synapses can only be of two types, excitatory or inhibitory. Is there enough information in the DNA to encode the state of each synapse?
 	\end{tcolorbox}
+
+	The human DNA can encode $2^{3 \times 10^9}$ states. The synapses can encode $10^{11} \times 2^{410^3}$ states.
 	
+	To compare these quantities we take logarithms on base $2$, which gives
 	
+	$$ 3 \times 10^9 > 11 \log_{2} 10 + 410^3 $$
+	
+	so we conclude that there is in fact enough information the DNA to encode the state of each synapses.
 	
 \end{document}
