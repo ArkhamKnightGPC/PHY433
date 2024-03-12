@@ -49,7 +49,7 @@
 	
 	Par indépendance, la probabilité qu'il n'y ait pas de molécules dans ce volume est le produit des probabilités que chaque particule individuelle ne soit pas dans le volume.
 	
-	\[ \left( 1 - \left(\frac{0.01 \mu m}{10^5 \mu m}\right)^3 \right)^{6.022 \times 10^{23}} \leq e^{-6.022 \times 10^{16}} \approx 0 \]
+	\[ \left( 1 - \left(\frac{0.01 \mu m}{10^5 \mu m}\right)^3 \right)^{6.022 \times 10^{23}} \leq e^{-6.022 \times 10^{16}} \approx 10^{-260} \]
 	
 	\begin{tcolorbox}[colback=yellow!5!white,colframe=yellow!75!black]
 		Nous avons utilisé l'inégalité
@@ -63,14 +63,17 @@
 		
 		\quad On suppose pour simplifier que les synapses peuvent être seulement de deux types, excitatrices ou inhibitrices. Y a-t-il assez d'information dans l'ADN pour coder l'état de chaque synapse?
 	\end{tcolorbox}
+
+	On calcule la quantité d'information dans les deux canaux d'information en utilisant l'entropie de Shannon.
 	
-	L'ADN humain peut coder \(2^{3 \times 10^9}\) états. Les synapses peuvent coder \(10^{11} \times 2^{410^3}\) états.
+	L'ADN est constitué de pairs de bases A-T ou C-G qu'on suppose équiprobables. On a
 	
-	Pour comparer ces quantités, nous prenons des logarithmes en base \(2\), ce qui donne
+	$$ H_1 = \sum_{\text{pair}} \frac{1}{2} \log(2) = \frac{3 \cdot 10^9}{4} \log(2) \approx 2,26 \cdot 10^{8} $$
 	
-	\[ 3 \times 10^9 > 11 \log_{2} 10 + 410^3 \]
+	Dans l'approximation où chaque synapse peut être de deux types qu'on suppose équiprobables, on a
 	
-	donc nous concluons qu'en fait il y a suffisamment d'information dans l'ADN pour coder l'état de chaque synapse.
+	$$ H_2 = \sum_{synapse} \frac{1}{2} \log(2) = \frac{10^{11} \cdot 410^3}{2}\log(2) \approx 2,07 \cdot 10^{18}$$
 	
+	On en conclue qu'il n'y a pas d'information dans l'ADN pour coder l'état de chaque synapse.
 	
 \end{document}

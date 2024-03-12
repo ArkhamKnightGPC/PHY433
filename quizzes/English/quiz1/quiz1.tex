@@ -48,7 +48,7 @@
 	
 	 By independence, the probability that there are no molecules in this volume is the product of the probabilities that each individual particle is not in the volume.
 	 
-	 $$ \left( 1 - \left(\frac{0.01 \mu m}{10^5 \mu m}\right)^3 \right)^{6.022 \times 10^{23}} \leq e^{-6.022 \times 10^{16}} \approx 0 $$
+	 $$ \left( 1 - \left(\frac{0.01 \mu m}{10^5 \mu m}\right)^3 \right)^{6.022 \times 10^{23}} \leq e^{-6.022 \times 10^{16}} \approx 10^{-260} $$
 	 
 	 \begin{tcolorbox}[colback=yellow!5!white,colframe=yellow!75!black]
 	 	We used the inequality
@@ -62,13 +62,17 @@
 		
 		\quad We assume, for simplification, that synapses can only be of two types, excitatory or inhibitory. Is there enough information in the DNA to encode the state of each synapse?
 	\end{tcolorbox}
+	
+	We shall compute the quantity of information in both channels of information using Shannon's entropy.
+	
+	The human DNA is made out of pairs of bases A-T or C-G which we'll suppose are equally likely. We have
 
-	The human DNA can encode $2^{3 \times 10^9}$ states. The synapses can encode $10^{11} \times 2^{410^3}$ states.
+	$$ H_1 = \sum_{\text{pair}} \frac{1}{2} \log(2) = \frac{3 \cdot 10^9}{4} \log(2) \approx 2,26 \cdot 10^{8} $$
 	
-	To compare these quantities we take logarithms on base $2$, which gives
+	Now, suppose each one of the two types of synapses are equally likely, we have
+
+	$$ H_2 = \sum_{synapse} \frac{1}{2} \log(2) = \frac{10^{11} \cdot 410^3}{2}\log(2) \approx 2,07 \cdot 10^{18}$$
 	
-	$$ 3 \times 10^9 > 11 \log_{2} 10 + 410^3 $$
-	
-	so we conclude that there is in fact enough information the DNA to encode the state of each synapses.
+	Thus, we conclude that there is not enough information in the human DNA to encode the state of each synapse.
 	
 \end{document}
