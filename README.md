@@ -5,3 +5,4 @@ This repository contains homework and quizzes from the course Statistical Physic
 ## Quizzes
 
 - **Quiz 1:** The Microcanonical Emsemble
+- **Quiz 2:** The Canonical Ensemble
