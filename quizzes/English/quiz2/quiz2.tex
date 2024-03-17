@@ -102,18 +102,18 @@
 	
 	hence,
 	
-	\[ X(s) = \frac{g}{s \left( s^2 + \frac{k}{M} \right)} \implies x(t) = \frac{gM}{k} \sin\left( \sqrt{\frac{k}{M}} t \right) \]
+	$$ X(s) = \frac{g}{s \left(s^2 + \frac{k}{M}\right)} \implies x(t) = \frac{gM}{k}\left( 1 - \cos\left(\sqrt{\frac{k}{M}} t \right) \right)  $$
 	
 	We conclude that
 	
 	\begin{align}
 	\begin{cases}
-	\langle x \rangle &= 0 \implies \langle L \rangle = L_0 \\
-	\langle x^2 \rangle &= \frac{gM}{4k} \implies \langle L^2 \rangle = L_0^2 + 2L_0 \langle x \rangle + \langle x^2 \rangle = L_0^2 + \frac{gM}{4k}
+	\langle x \rangle &= \frac{gM}{k} \implies \langle L \rangle = L_0 + \frac{gM}{k} \implies \langle L \rangle^2 = L_0^2 + 2\frac{gM}{k}L_0 + \frac{g^2M^2}{k^2} \\
+	\langle x^2 \rangle &= \frac{5g^2M^2}{4k^2} \implies \langle L^2 \rangle = L_0^2 + 2L_0\langle x \rangle + \langle x^2 \rangle = L_0^2 + 2\frac{gM}{k}L_0 + \frac{5g^2M^2}{4k^2}
 	\end{cases}
 	\end{align}
 	
-	Therefore, \( \Delta = \frac{gM}{4k} \) increases as \( M \) increases.
+	Therefore, $\Delta = \frac{g^2M^2}{4k^2}$ increases as \( M \) increases.
 	
 	
 \end{document}
