@@ -1,0 +1,119 @@
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper]{geometry}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{tcolorbox}
+\usepackage{color}
+\usepackage{breqn}
+\usepackage{enumitem}
+%\usepackage{siunitx}
+
+\setlist[enumerate]{label={$\square$}}
+
+\begin{document}
+	\title{The Canonical Ensemble}
+	\author{}
+	\date{}
+	
+	\maketitle
+	
+	\section{Two-level systems with one degenerate level}
+	\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black]
+		\quad Consider a set of $N$ discernible particles, each capable of occupying an energy state $-\epsilon$ and $q$ states grouped in energy around the value $+\epsilon$. Assume $q > 1$. In the limit of high temperatures:
+		\begin{enumerate}
+			\item the total energy of the system is zero.
+			\item the total energy of the system is positive and independent of $q$.
+			\item the total energy of the system is positive and increases with $q$.
+		\end{enumerate}
+	\end{tcolorbox}
+
+	We calculate the canonical partition function $Z_c$:
+	
+	$$ Z_c = \sum_{m}e^{-\frac{E_m}{k_B T}} =  e^{\frac{\epsilon}{k_B T}} + q e^{-\frac{\epsilon}{k_B T}} $$
+	
+	So, the total energy of the system is
+	\begin{align}
+	U &= \sum_{m} p_m E_m \\
+	&= \sum_{m} \frac{e^{-\frac{E_m}{k_B T}}}{Z_c} E_m \\
+	&= \epsilon \left(\frac{-e^{\frac{\epsilon}{k_B T}} + qe^{-\frac{\epsilon}{k_B T}}}{e^{\frac{\epsilon}{k_B T}} + q e^{-\frac{\epsilon}{k_B T}}}\right) \\
+	&= \epsilon \left(1 - \frac{2}{1+ qe^{-2\frac{\epsilon}{k_B T}}}\right)
+	\end{align}
+	
+	So in the limit of high temperatures, we have
+	
+	$$ \lim_{T \to +\infty} U = \epsilon \left(1 - \frac{2}{1 + q}\right) $$
+	
+	where we notice that $U$ is positive $\forall q > 1$ and is an increasing function of $q$.
+	
+	
+	\section{Polarization of nuclear spins}
+	\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black]
+		\quad Consider a system of $N$ independent and discernible protons. The magnetic moment associated with the proton spin is much smaller than that of the electron: it is given by $$\mu_P = 2.79\left(\frac{m_e}{M_p}\right)\mu_B,$$ where $m_e$ is the mass of the electron, $M_P$ is the mass of the proton, and $\mu_B$ is the Bohr magneton.
+		
+		\quad Let's set the temperature to $0.01K$. Calculate the magnetic field that must be applied to obtain a magnetization of about $\frac{3}{4}$ of the maximum possible magnetization.
+	\end{tcolorbox}
+	
+	Firstly, we notice that the maximum possible magnetization is 
+	
+	$$ M_{\text{max}} = N\mu_P $$
+	
+	We know that the energy \(E_m\) of the system in a certain microstate of magnetization \(M_m\) is given by \(E_m = - M_m B\). So, let's calculate the canonical partition function \(Z_c\):
+	
+	\begin{align}
+	Z_c &= \sum_{m} e^{-\frac{E_m}{k_B T}} \\
+	&= \sum_{m} e^{\frac{M_m B}{k_B T}}
+	\end{align}
+	
+	We know that the total magnetization (per unit volume) is given by
+	
+	\begin{align}
+	\langle M \rangle &= k_B T \frac{\partial}{\partial B} \ln(Z_c) \\
+	&= \frac{k_B T}{Z_c} \frac{\partial}{\partial B} Z_c \\
+	&= \frac{k_B T}{Z_c} \left( \sum_{m} \frac{\partial}{\partial B}  e^{\frac{M_m B}{k_B T}} \right) \\
+	&= \frac{1}{Z_c} \sum_{m} M_m e^{\frac{M_m B}{k_B T}}
+	\end{align}
+	
+	\section{Fluctuations in the length of a spring}
+	\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black]
+		\quad Take a spring with a rest length $L_0$ and stiffness $K$, and hang a mass $M$ from one end. The system is in thermal equilibrium at temperature $T$, and we assume $L_0 \gg \sqrt{\frac{kT}{K}}$.
+		
+		\quad We study the thermal fluctuations in the length $L$ of the spring, by measuring $\Delta = \langle L^2 \rangle - \langle L \rangle^2$. The quantity $\Delta$:
+		\begin{enumerate}
+			\item decreases when $M$ increases.
+			\item increases when $M$ increases.
+			\item is independent of $M$.
+		\end{enumerate}
+	\end{tcolorbox}
+
+	Let \( x(t) \) be the position of mass \( M \), with \( x(0) = 0 \). It is noted that \( L(t) = L_0 + x(t) \).
+	
+	The equation of motion is
+	
+	\[ \ddot{x} = g - \frac{k}{M} x \]
+	
+	We apply the Laplace transform with zero initial conditions:
+	
+	\[ s^2 X = \frac{g}{s} - \frac{k}{M}X \]
+	
+	hence,
+	
+	\[ X(s) = \frac{g}{s \left( s^2 + \frac{k}{M} \right)} \implies x(t) = \frac{gM}{k} \sin\left( \sqrt{\frac{k}{M}} t \right) \]
+	
+	We conclude that
+	
+	\begin{align}
+	\begin{cases}
+	\langle x \rangle &= 0 \implies \langle L \rangle = L_0 \\
+	\langle x^2 \rangle &= \frac{gM}{4k} \implies \langle L^2 \rangle = L_0^2 + 2L_0 \langle x \rangle + \langle x^2 \rangle = L_0^2 + \frac{gM}{4k}
+	\end{cases}
+	\end{align}
+	
+	Therefore, \( \Delta = \frac{gM}{4k} \) increases as \( M \) increases.
+	
+	
+\end{document}

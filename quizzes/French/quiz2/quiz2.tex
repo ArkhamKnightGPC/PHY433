@@ -1,0 +1,118 @@
+\documentclass[french]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper]{geometry}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{tcolorbox}
+\usepackage{color}
+\usepackage{breqn}
+\usepackage{enumitem}
+%\usepackage{siunitx}
+
+\setlist[enumerate]{label={$\square$}}
+
+\begin{document}
+	\title{L'Ensemble Canonique}
+	\author{}
+	\date{}
+	
+	\maketitle
+	
+	\section{Systèmes à deux niveaux dont un dégénéré}
+	\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black]
+		\quad On considère un ensemble de $N$ particules discernables, chacune pouvant occuper un état d’énergie $-\epsilon$ et $q$ états regroupés en énergie autour de la valeur $+\epsilon$. On suppose $q > 1$. Dans la limite des hautes températures:
+		\begin{enumerate}
+			\item l'énergie totale du système est nulle.
+			\item l'énergie totale du système est positive et ne dépend pas de $q$.
+			\item l'énergie totale du système est positive et croît avec q.
+		\end{enumerate}
+	\end{tcolorbox}
+
+	On calcule la fonction de partition canonique $Z_c$
+	
+	$$ Z_c = \sum_{m}e^{-\frac{E_m}{k_B T}} =  e^{\frac{\epsilon}{k_B T}} + q e^{-\frac{\epsilon}{k_B T}} $$
+	
+	Alors, l'énergie totale du système est
+	
+	\begin{align}
+		U &= \sum_{m} p_m E_m \\
+		&= \sum_{m} \frac{e^{-\frac{E_m}{k_B T}}}{Z_c} E_m \\
+		&= \epsilon \left(\frac{-e^{\frac{\epsilon}{k_B T}} + qe^{-\frac{\epsilon}{k_B T}}}{e^{\frac{\epsilon}{k_B T}} + q e^{-\frac{\epsilon}{k_B T}}}\right) \\
+		&= \epsilon \left(1 - \frac{2}{1+ qe^{-2\frac{\epsilon}{k_B T}}}\right)
+	\end{align}
+	
+	Donc dans la limite des hautes températures on a
+	
+	$$ \lim_{T \to +\infty} U = \epsilon \left(1 - \frac{2}{1 + q}\right)$$
+	
+	d'où on remarque que $U$ est positive $\forall q > 1$ et une fonction croissante de $q$.
+	
+	\section{Polarisation de spins nucléaires}
+	\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black]
+	\quad On considère un système de $N$ protons indépendants et discernables. Le moment magnétique associé au spin du proton est beaucoup plus petit que celui de l'électron: il vaut $$\mu_P = 2,79\left(\frac{m_e}{M_p}\right)\mu_B,$$ où $m_e$ est la masse de l'électron, $M_P$ celle du proton et $\mu_B$ est le magnéton de Bohr.
+	
+	\quad On fixe la température à $0,01K$. Calculer le champ magnétique qu'il faut appliquer pour obtenir une aimantation de l'ordre des $\frac{3}{4}$ de l'aimantation maximale possible.
+	\end{tcolorbox}
+
+	Premièrement, on remarque que l'aimantation maximale possible est 
+	
+	$$ M_{max} = N\mu_P $$
+
+	On sait que l'énergie $E_m$ du système dans un certain microétat d'aimantation $M_m$ est donnée par $ E_m = - M_m B $. Alors, calculons la fonction de partition canonique $Z_c$
+	
+	\begin{align}
+		Z_c &= \sum_{m} e^{-\frac{E_m}{k_B T}} \\
+		&= \sum_{m} e^{\frac{M_m B}{k_B T}}
+	\end{align}
+
+	On sait que l'aimantation totale (par unité de volume) est donnée par
+	
+	\begin{align}
+		\langle M \rangle &= k_B T \frac{\partial}{\partial B} \ln(Z_c) \\
+		&= \frac{k_B T}{Z_c} \frac{\partial}{\partial B} Z_c \\
+		&= \frac{k_B T}{Z_c} \left( \sum_{m} \frac{\partial}{\partial B}  e^{\frac{M_m B}{k_B T}} \right) \\
+		&= \frac{1}{Z_c} \sum_{m} M_m e^{\frac{M_m B}{k_B T}}
+	\end{align}
+	
+	\section{Fluctuations de longueur d'un ressort}
+	\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black]
+	\quad On prend un ressort de longueur au repos $L_0$ et de raideur $K$, et on accroche à son extrémité une masse M. L'ensemble est à l'équilibre thermique à la température T, et on suppose $L_0 \gg \sqrt{\frac{kT}{K}}$.
+	
+	\quad On étudie les fluctuations thermiques de la longueur $L$ du ressort, en mesurant $\Delta = \langle L^2 \rangle - \langle L \rangle^2$. La quantité $\Delta$:
+	\begin{enumerate}
+		\item décroit quand $M$ augmente.
+		\item croît quand $M$ augmente.
+		\item est indépendante de $M$.
+	\end{enumerate}
+	\end{tcolorbox}
+
+	Soit $x(t)$ la position de la masse $M$, avec $x(0) = 0$. On remarque que $L(t) = L_0 + x(t)$.
+
+	L'équation du mouvement est
+	
+	$$ \ddot{x} = g - \frac{k}{M} x $$
+	
+	On applique la transformation de Laplace avec conditions initiales nulles
+	
+	$$ s^2 X = \frac{g}{s} - \frac{k}{M}X $$
+	
+	d'où
+	
+	$$ X(s) = \frac{g}{s \left(s^2 + \frac{k}{M}\right)} \implies x(t) = \frac{gM}{k} \sin\left(\sqrt{\frac{k}{M}} t \right)  $$
+	
+	On en conclue que 
+	
+	\begin{align}
+		\begin{cases}
+		\langle x \rangle &= 0 \implies \langle L \rangle = L_0 \\
+		\langle x^2 \rangle &= \frac{gM}{4k} \implies \langle L^2 \rangle = L_0^2 + 2L_0\langle x \rangle + \langle x^2 \rangle = L_0^2 + \frac{gM}{4k}
+		\end{cases}
+	\end{align}
+	
+	Donc $\Delta = \frac{gM}{4k}$ croît quand $M$ augmente.
+	
+\end{document}
